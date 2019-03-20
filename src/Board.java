@@ -18,6 +18,20 @@ public class Board {
 
 
 
+    public byte getCell(int row,int col){
+
+        if ((row<0)||(row>=ROWS)||(col<0)||(col>=COLS)) return SOLID_CELL;
+
+        return vals[row][col];
+    }
+
+    public boolean placePiece(int col, Player player){
+        byte p=0;
+        if (player==player1) p = PLAYER1;
+        else p=PLAYER2;
+        return placePiece(col,p);
+    }
+
     /**
      * Creates a copy of the board, using only the data but without displaying it on
      * the screen.
